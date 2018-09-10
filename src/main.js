@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import Vuex from 'vuex'
+import store from './store.js'
 
 Vue.config.productionTip = false
 
@@ -11,6 +12,6 @@ Vue.use(Vuex)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  components: { App },
-  template: '<App/>'
+  store,
+  render: h=> h(App)
 })
