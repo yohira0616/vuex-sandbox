@@ -1,6 +1,6 @@
 <template>
   <div class="edit-form">
-    <input type="text" :value="message" @input="doUpdate"/>
+    <input type="text" v-model="message" />
 
   </div>
 </template>
@@ -9,13 +9,13 @@
   export default {
     name: "EditForm",
     computed: {
-      message() {
-        return this.$store.getters.message
-      }
-    },
-    methods: {
-      doUpdate(event) {
-        this.$store.dispatch('doUpdate', event.target.value)
+      message: {
+        get() {
+          return this.$store.getters.message
+        },
+        set(value) {
+          this.$store.dispatch('doUpdate', value)
+        }
       }
     }
   }
