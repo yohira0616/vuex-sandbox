@@ -6,11 +6,21 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    count: 0
+    message: 'メッセージ'
   },
   mutations: {
-    increment(state) {
-      state.count++
+    setMessage(state, payload) {
+      state.message = payload.message
+    }
+  },
+  getters: {
+    message(state) {
+      return state.message
+    }
+  },
+  actions: {
+    doUpdate({commit}, message) {
+      commit('setMessage', {message})
     }
   }
 })
