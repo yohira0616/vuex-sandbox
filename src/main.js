@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import App from './App'
 import router from './router.js'
 import product from '@/store/product.js'
+import review from '@/store/review.js'
 
 Vue.config.productionTip = false
 
@@ -12,7 +13,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules:{
-    product
+    product,review
   }
 })
 
