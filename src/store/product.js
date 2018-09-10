@@ -1,10 +1,8 @@
 import products from '@/api/products.js'
-import Vuex from 'vuex'
 import Vue from 'vue'
 
-Vue.use(Vuex)
 
-export default new Vuex.Store({
+export default {
   namespaced: true,
   state: {
     detail: {}
@@ -14,7 +12,7 @@ export default new Vuex.Store({
   },
   mutations: {
     set(state, {detail}) {
-      store.detail = detail
+      state.detail = detail
     },
     clear(state) {
       state.detail = {}
@@ -30,4 +28,4 @@ export default new Vuex.Store({
       commit('clear')
     }
   }
-})
+}

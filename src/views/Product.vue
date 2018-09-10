@@ -13,7 +13,6 @@
   import {mapGetters} from 'vuex'
 
   export default {
-    name: "Product",
     props: {id: Number},
     computed: mapGetters('product', ['detail']),
     watch: {
