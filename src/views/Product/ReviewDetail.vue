@@ -1,10 +1,6 @@
 <template>
-  <div class="review">
-    <h1>{{detail.name}}</h1>
-    <nav class="nav">
-      <router-link :to="{name: 'product-home'}">商品詳細</router-link>
-      <router-link :to="{name: 'product-review'}">レビュー</router-link>
-    </nav>
+  <div class="review-detail">
+    <h1>{{id}}</h1>
     <router-view></router-view>
   </div>
 </template>
@@ -14,16 +10,16 @@
 
   export default {
     props: {id: Number},
-    computed: mapGetters('product', ['detail']),
+    computed: mapGetters('review', ['detail']),
     watch: {
       id: {
         handler() {
-          this.$store.dispatch('product/load', this.id)
+          this.$store.dispatch('review/load', this.id)
         }, immediate: true
       }
     },
     beforeDestroy() {
-      this.$store.dispatch('product/destroy')
+      this.$store.dispatch('review/destroy')
     }
   }
 </script>
